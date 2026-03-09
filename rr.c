@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   rr.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anjaraan <anjaraan@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/06 15:47:56 by anjaraan          #+#    #+#             */
-/*   Updated: 2026/03/09 11:40:37 by anjaraan         ###   ########.fr       */
+/*   Created: 2026/03/09 12:48:25 by anjaraan          #+#    #+#             */
+/*   Updated: 2026/03/09 13:03:33 by anjaraan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-
-typedef struct s_node
+void	rr(t_stack *a, t_stack *b)
 {
-	int				value;
-	struct s_node	*next;
-}	t_node;
-
-typedef struct s_stack
-{
-	t_node	*top;
-	int		size;
-	int		*data;
-}	t_stack;
-
-#endif
+	ra(a);
+	rb(b);
+	// ft_putstr("rr\n");
+}

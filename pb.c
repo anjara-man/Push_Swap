@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   pb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anjaraan <anjaraan@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/06 15:47:56 by anjaraan          #+#    #+#             */
-/*   Updated: 2026/03/09 11:40:37 by anjaraan         ###   ########.fr       */
+/*   Created: 2026/03/09 11:52:48 by anjaraan          #+#    #+#             */
+/*   Updated: 2026/03/09 12:49:20 by anjaraan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-
-typedef struct s_node
+void	pb(t_stack *a, t_stack *b)
 {
-	int				value;
-	struct s_node	*next;
-}	t_node;
-
-typedef struct s_stack
-{
-	t_node	*top;
-	int		size;
-	int		*data;
-}	t_stack;
-
-#endif
+	if (a->size == 0)
+		return ;
+	b->data[b->size] = a->data[a->size - 1];
+	b->size++;
+	a->size--;
+	// ft_putstr("pb\n");
+}

@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   simple_strategy.c                                  :+:      :+:    :+:   */
+/*   rb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anjaraan <anjaraan@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/06 15:46:55 by anjaraan          #+#    #+#             */
-/*   Updated: 2026/03/09 11:38:26 by anjaraan         ###   ########.fr       */
+/*   Created: 2026/03/09 12:40:13 by anjaraan          #+#    #+#             */
+/*   Updated: 2026/03/09 12:48:59 by anjaraan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	simple_strategy(t_stack *a, t_stack *b)
+void	rb(t_stack *b)
 {
-	if (is_sorted(a))
+	int	temp;
+	int	i;
+
+	if (b->size < 2)
 		return ;
-	if (a->size == 2)
+	temp = b->data[b->size - 1];
+	i = b->size - 1;
+	while (i > 0)
 	{
-		if (a->top->value > a->top->next->value)
-			sa(a);
-		return ;
+		b->data[i] = b->data[i - 1];
+		i--;
 	}
-	if (a->size == 3)
-	{
-		if (a->top->value > a->top->next->value)
-			sa(a);
-		if (a->top->next->value > a->top->next->next->value)
-			rra(a);
-		if (a->top->value > a->top->next->value)
-			sa(a);
-		return ;
-	}
-	while (a->size > 3)
-		pb(a, b);
-	simple_strategy(a, b);
-	while (b->size > 0)
-		pa(a, b);
+	b->data[0] = temp;
+	// ft_putstr("rb\n");
 }

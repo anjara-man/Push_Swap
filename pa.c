@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   pa.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anjaraan <anjaraan@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/06 15:47:56 by anjaraan          #+#    #+#             */
-/*   Updated: 2026/03/09 11:40:37 by anjaraan         ###   ########.fr       */
+/*   Created: 2026/03/09 11:52:26 by anjaraan          #+#    #+#             */
+/*   Updated: 2026/03/09 12:49:12 by anjaraan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-
-typedef struct s_node
+void	pa(t_stack *a, t_stack *b)
 {
-	int				value;
-	struct s_node	*next;
-}	t_node;
-
-typedef struct s_stack
-{
-	t_node	*top;
-	int		size;
-	int		*data;
-}	t_stack;
-
-#endif
+	if (b->size == 0)
+		return ;
+	a->data[a->size] = b->data[b->size - 1];
+	a->size++;
+	b->size--;
+	// ft_putstr("pa\n");
+}
