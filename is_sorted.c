@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rrb.c                                              :+:      :+:    :+:   */
+/*   is_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anjaraan <anjaraan@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/09 13:11:03 by anjaraan          #+#    #+#             */
-/*   Updated: 2026/03/09 13:11:22 by anjaraan         ###   ########.fr       */
+/*   Created: 2026/03/09 14:58:39 by anjaraan          #+#    #+#             */
+/*   Updated: 2026/03/09 14:58:48 by anjaraan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rrb(t_stack *b)
+int	is_sorted(t_stack *stack)
 {
-	int	temp;
+	int	i;
 
-	if (b->size < 2)
-		return ;
-	temp = b->data[0];
-	ft_memmove(b->data, b->data + 1, sizeof(int) * (b->size - 1));
-	b->data[b->size - 1] = temp;
-	// ft_putstr("rrb\n");
-	// ft_putstr("rrb\n");
+	if (stack->size < 2)
+		return (1);
+	i = stack->size - 1;
+	while (i > 0)
+	{
+		if (stack->data[i] < stack->data[i - 1])
+			return (0);
+		i--;
+	}
+	return (1);
 }

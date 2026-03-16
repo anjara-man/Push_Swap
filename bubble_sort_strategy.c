@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sa.c                                               :+:      :+:    :+:   */
+/*   bubble_sort_strategy.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anjaraan <anjaraan@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/09 11:38:46 by anjaraan          #+#    #+#             */
-/*   Updated: 2026/03/09 12:49:44 by anjaraan         ###   ########.fr       */
+/*   Created: 2026/03/16 10:53:04 by anjaraan          #+#    #+#             */
+/*   Updated: 2026/03/16 10:53:17 by anjaraan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack *a)
+void	bubble_sort_strategy(t_stack *a, t_stack *b)
 {
-	int	temp;
+	int	i;
+	int	j;
 
-	if (a->size < 2)
+	(void)b;
+	if (is_sorted(a))
 		return ;
-	temp = a->data[a->size - 1];
-	a->data[a->size - 1] = a->data[a->size - 2];
-	a->data[a->size - 2] = temp;
-	// ft_putstr("sa\n");
+	i = 0;
+	while (i < a->size - 1)
+	{
+		j = 0;
+		while (j < a->size - i - 1)
+		{
+			if (a->top->value > a->top->next->value)
+				sa(a);
+			ra(a);
+			j++;
+		}
+		rra(a);
+		i++;
+	}
 }

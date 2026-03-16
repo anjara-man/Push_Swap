@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rra.c                                              :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anjaraan <anjaraan@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/09 13:10:32 by anjaraan          #+#    #+#             */
-/*   Updated: 2026/03/09 13:10:52 by anjaraan         ###   ########.fr       */
+/*   Created: 2026/03/16 12:14:19 by anjaraan          #+#    #+#             */
+/*   Updated: 2026/03/16 12:15:01 by anjaraan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_stack *a)
+void	ra(t_stack *a)
 {
 	int	temp;
 	int	i;
@@ -27,5 +27,30 @@ void	rra(t_stack *a)
 		i--;
 	}
 	a->data[0] = temp;
-	// ft_putstr("rra\n");
+	// ft_putstr("ra\n");
+}
+
+void	rb(t_stack *b)
+{
+	int	temp;
+	int	i;
+
+	if (b->size < 2)
+		return ;
+	temp = b->data[b->size - 1];
+	i = b->size - 1;
+	while (i > 0)
+	{
+		b->data[i] = b->data[i - 1];
+		i--;
+	}
+	b->data[0] = temp;
+	// ft_putstr("rb\n");
+}
+
+void	rr(t_stack *a, t_stack *b)
+{
+	ra(a);
+	rb(b);
+	// ft_putstr("rr\n");
 }

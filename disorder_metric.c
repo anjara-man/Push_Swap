@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rb.c                                               :+:      :+:    :+:   */
+/*   disorder_metric.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anjaraan <anjaraan@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/09 12:40:13 by anjaraan          #+#    #+#             */
-/*   Updated: 2026/03/09 12:48:59 by anjaraan         ###   ########.fr       */
+/*   Created: 2026/03/16 11:04:26 by anjaraan          #+#    #+#             */
+/*   Updated: 2026/03/16 12:10:47 by anjaraan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rb(t_stack *b)
+float	disorder_metric(t_stack *stack)
 {
-	int	temp;
-	int	i;
+	int		count;
+	t_node	*current;
 
-	if (b->size < 2)
-		return ;
-	temp = b->data[b->size - 1];
-	i = b->size - 1;
-	while (i > 0)
+	if (stack->size <= 1)
+		return (0.0);
+	count = 0;
+	current = stack->top;
+	while (current && current->next)
 	{
-		b->data[i] = b->data[i - 1];
-		i--;
+		if (current->value > current->next->value)
+			count++;
+		current = current->next;
 	}
-	b->data[0] = temp;
-	// ft_putstr("rb\n");
+	return ((float)count / (stack->size - 1));
 }

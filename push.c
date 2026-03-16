@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pa.c                                               :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anjaraan <anjaraan@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/09 11:52:26 by anjaraan          #+#    #+#             */
-/*   Updated: 2026/03/09 12:49:12 by anjaraan         ###   ########.fr       */
+/*   Created: 2026/03/16 12:11:30 by anjaraan          #+#    #+#             */
+/*   Updated: 2026/03/16 12:15:43 by anjaraan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,14 @@ void	pa(t_stack *a, t_stack *b)
 	a->size++;
 	b->size--;
 	// ft_putstr("pa\n");
+}
+
+void	pb(t_stack *a, t_stack *b)
+{
+	if (a->size == 0)
+		return ;
+	b->data[b->size] = a->data[a->size - 1];
+	b->size++;
+	a->size--;
+	// ft_putstr("pb\n");
 }
