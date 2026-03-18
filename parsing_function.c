@@ -6,12 +6,11 @@
 /*   By: anjaraan <anjaraan@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:55:05 by anjaraan          #+#    #+#             */
-/*   Updated: 2026/03/18 11:05:42 by anjaraan         ###   ########.fr       */
+/*   Updated: 2026/03/18 13:46:26 by anjaraan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 t_node	*new_node(int value)
 {
