@@ -6,25 +6,13 @@
 /*   By: anjaraan <anjaraan@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 12:00:00 by anjaraan          #+#    #+#             */
-/*   Updated: 2026/03/16 11:52:57 by anjaraan         ###   ########.fr       */
+/*   Updated: 2026/03/18 10:56:17 by anjaraan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 #include <string.h>
-
-t_node	*new_node(int value)
-{
-	t_node	*node;
-
-	node = (t_node *)malloc(sizeof(t_node));
-	if (!node)
-		return (NULL);
-	node->value = value;
-	node->next = NULL;
-	return (node);
-}
 
 void	init_stack(t_stack *stack, int *values, int count)
 {

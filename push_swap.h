@@ -6,7 +6,7 @@
 /*   By: anjaraan <anjaraan@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 15:47:56 by anjaraan          #+#    #+#             */
-/*   Updated: 2026/03/16 11:35:51 by anjaraan         ###   ########.fr       */
+/*   Updated: 2026/03/18 10:58:51 by anjaraan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
+# include "libft.h"
 
 typedef struct s_node
 {
@@ -44,6 +45,6 @@ void	rrr(t_stack *a, t_stack *b);
 void	simple_strategy(t_stack *a, t_stack *b);
 void	bubble_sort_strategy(t_stack *a, t_stack *b);
 int		is_sorted(t_stack *stack);
-float		disorder_metric(t_stack *stack);
+float	disorder_metric(t_stack *stack);
 
 #endif
