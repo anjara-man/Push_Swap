@@ -6,17 +6,16 @@
 /*   By: anjaraan <anjaraan@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 15:47:56 by anjaraan          #+#    #+#             */
-/*   Updated: 2026/03/18 10:58:51 by anjaraan         ###   ########.fr       */
+/*   Updated: 2026/03/18 13:47:32 by anjaraan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
-# include "libft.h"
+# include "libft/libft.h"
 
 typedef struct s_node
 {
