@@ -6,76 +6,37 @@
 /*   By: anjaraan <anjaraan@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:55:05 by anjaraan          #+#    #+#             */
-/*   Updated: 2026/03/18 13:46:26 by anjaraan         ###   ########.fr       */
+/*   Updated: 2026/03/23 10:30:56 by anjaraan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "libft/libft.h"
 
-t_node	*new_node(int value)
+void	parse_int_input(int argc, char **argv, t_stack *stack)
 {
-	t_node	*node;
+	int		i;
+	long	value;
 
-	node = (t_node *)malloc(sizeof(t_node));
-	if (!node)
-		return (NULL);
-	node->value = value;
-	node->next = NULL;
-	return (node);
-}
-
-void	free_tokens(char **tokens)
-{
-	int	i;
-
-	i = 0;
-	while (tokens[i])
-	{
-		free(tokens[i]);
-		i++;
-	}
-	free(tokens);
-}
-
-void	push(t_stack *stack, int value)
-{
-	t_node	*node;
-
-	node = new_node(value);
-	if (!node)
-		return ;
-	if (!stack->top)
-	{
-		stack->top = node;
-	}
+	if (argc == 2)
+		split_and_loop(argv[1], stack);
 	else
 	{
-		node->next = stack->top;
-		stack->top = node;
-	}
-	stack->size++;
-}
-
-void	split_and_loop(char *input, t_stack *stack)
-{
-	char	**tokens;
-	int		i;
-	int		value;
-
-	tokens = ft_split(input, ' ');
-	if (!tokens)
-		return ;
-	i = 0;
-	while (tokens[i])
-	{
-		value = ft_atoi(tokens[i]);
-		if (value < -2147483648 || value > 2147483647)
+		i = 1;
+		while (i < argc)
 		{
-			ft_printf("Error\n");
-			exit(EXIT_FAILURE);
+			if (ft_strchr(argv[i], ' '))
+				split_and_loop(argv[i], stack);
+			else
+			{
+				value = ft_atoi(argv[i]);
+				if (value < -2147483648 || value > 2147483647)
+					print_error();
+				push(stack, value);
+				if (check_duplicates(stack) == 0)
+					print_error();
+			}
+			i++;
 		}
-		push(stack, value);
-		i++;
 	}
-	free_tokens(tokens);
 }
