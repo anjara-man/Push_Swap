@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_error.c                                      :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anjaraan <anjaraan@student.42antananari    +#+  +:+       +#+        */
+/*   By: tokrabem <tokrabem@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/20 10:05:44 by anjaraan          #+#    #+#             */
-/*   Updated: 2026/03/25 11:05:31 by anjaraan         ###   ########.fr       */
+/*   Created: 2026/01/23 15:23:09 by tokrabem          #+#    #+#             */
+/*   Updated: 2026/02/17 09:11:41 by tokrabem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	print_error(void)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	write(2, "Error\n", 6);
-	exit(EXIT_FAILURE);
+	void	*mem;
+
+	if (size != 0 && (nmemb * size > __SIZE_MAX__))
+		return (NULL);
+	mem = malloc(nmemb * size);
+	if (!mem)
+		return (NULL);
+	ft_bzero(mem, nmemb * size);
+	return (mem);
 }

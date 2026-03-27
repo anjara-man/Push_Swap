@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_error.c                                      :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anjaraan <anjaraan@student.42antananari    +#+  +:+       +#+        */
+/*   By: tokrabem <tokrabem@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/20 10:05:44 by anjaraan          #+#    #+#             */
-/*   Updated: 2026/03/25 11:05:31 by anjaraan         ###   ########.fr       */
+/*   Created: 2026/02/13 20:46:22 by tokrabem          #+#    #+#             */
+/*   Updated: 2026/02/16 20:50:54 by tokrabem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	print_error(void)
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	write(2, "Error\n", 6);
-	exit(EXIT_FAILURE);
+	if (!lst || !del)
+		return ;
+	del(lst->content);
+	free(lst);
 }

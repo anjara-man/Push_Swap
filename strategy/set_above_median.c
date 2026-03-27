@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_error.c                                      :+:      :+:    :+:   */
+/*   set_above_median.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anjaraan <anjaraan@student.42antananari    +#+  +:+       +#+        */
+/*   By: tokrabem <tokrabem@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/20 10:05:44 by anjaraan          #+#    #+#             */
-/*   Updated: 2026/03/25 11:05:31 by anjaraan         ###   ########.fr       */
+/*   Created: 2026/03/23 15:52:55 by tokrabem          #+#    #+#             */
+/*   Updated: 2026/03/23 15:54:21 by tokrabem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_error(void)
+void	set_above_median(t_stack *stack)
 {
-	write(2, "Error\n", 6);
-	exit(EXIT_FAILURE);
+	int	size;
+	int	median;
+	int	i;
+
+	size = stack_size(stack);
+	median = size / 2;
+	i = 0;
+	while (stack)
+	{
+		stack->above_median = (i <= median);
+		i++;
+		stack = stack->next;
+	}
 }

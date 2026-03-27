@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_error.c                                      :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anjaraan <anjaraan@student.42antananari    +#+  +:+       +#+        */
+/*   By: tokrabem <tokrabem@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/20 10:05:44 by anjaraan          #+#    #+#             */
-/*   Updated: 2026/03/25 11:05:31 by anjaraan         ###   ########.fr       */
+/*   Created: 2026/03/23 16:19:34 by tokrabem          #+#    #+#             */
+/*   Updated: 2026/03/24 19:17:46 by tokrabem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_error(void)
+float	ft_sqrt(int number)
 {
-	write(2, "Error\n", 6);
-	exit(EXIT_FAILURE);
+	double	i;
+	
+	i = 0.01;
+	while (i * i <= number)
+	{
+		if (i * i == number)
+			return(i);
+		i = i + 0.01;
+	}
+	return (i);
 }

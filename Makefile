@@ -6,7 +6,7 @@
 #    By: anjaraan <anjaraan@student.42antananari    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/06 15:44:06 by anjaraan          #+#    #+#              #
-#    Updated: 2026/03/24 10:29:22 by anjaraan         ###   ########.fr        #
+#    Updated: 2026/03/24 11:29:01 by anjaraan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,8 @@ LIB_DIR = libft/
 
 LIB_NAME = $(LIB_DIR)/libft.a
 
-SRC = movement_push.c parsing_function.c simple_strategy.c bubble_sort_strategy.c\
-		is_sorted.c disorder_metric.c movement_reverse_rotate.c movement_rotate.c movement_swap.c\
+SRC = push_functions.c parsing_function.c simple_strategy.c bubble_sort_strategy.c\
+		is_sorted.c disorder_metric.c reverse_rotate_functions.c rotate_functions.c swap_functions.c\
 		stack_utils.c parsing_utils.c main.c print_error.c
 
 OBJ = $(SRC:.c=.o)

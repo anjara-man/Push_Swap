@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_error.c                                      :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anjaraan <anjaraan@student.42antananari    +#+  +:+       +#+        */
+/*   By: tokrabem <tokrabem@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/20 10:05:44 by anjaraan          #+#    #+#             */
-/*   Updated: 2026/03/25 11:05:31 by anjaraan         ###   ########.fr       */
+/*   Created: 2026/01/21 09:00:10 by tokrabem          #+#    #+#             */
+/*   Updated: 2026/02/16 19:47:43 by tokrabem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	print_error(void)
+char	*ft_strrchr(const char *s, int c)
 {
-	write(2, "Error\n", 6);
-	exit(EXIT_FAILURE);
+	int		count;
+
+	count = ft_strlen(s) + 1;
+	while (count-- > 0)
+	{
+		if (s[count] == (char)c)
+			return ((char *)&s[count]);
+	}
+	return (NULL);
 }

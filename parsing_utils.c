@@ -6,7 +6,7 @@
 /*   By: anjaraan <anjaraan@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 10:47:44 by anjaraan          #+#    #+#             */
-/*   Updated: 2026/03/24 10:52:19 by anjaraan         ###   ########.fr       */
+/*   Updated: 2026/03/25 12:56:29 by anjaraan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,25 +81,20 @@ int	check_duplicates(t_stack *stack)
 	return (1);
 }
 
-void	split_and_loop(char *input, t_stack *stack)
+int	is_number(char *str)
 {
-	char	**tokens;
-	int		i;
-	long	value;
+	int	i;
 
-	tokens = ft_split(input, ' ');
-	if (!tokens)
-		return ;
 	i = 0;
-	while (tokens[i])
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	if (!str[i])
+		return (0);
+	while (str[i])
 	{
-		value = ft_atoi(tokens[i]);
-		if (value < -2147483648 || value > 2147483647)
-			print_error();
-		push(stack, value);
-		if (check_duplicates(stack) == 0)
-			print_error();
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
 		i++;
 	}
-	free_tokens(tokens);
+	return (1);
 }

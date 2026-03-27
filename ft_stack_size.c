@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_error.c                                      :+:      :+:    :+:   */
+/*   ft_stack_size.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anjaraan <anjaraan@student.42antananari    +#+  +:+       +#+        */
+/*   By: tokrabem <tokrabem@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/20 10:05:44 by anjaraan          #+#    #+#             */
-/*   Updated: 2026/03/25 11:05:31 by anjaraan         ###   ########.fr       */
+/*   Created: 2026/03/20 21:48:50 by tokrabem          #+#    #+#             */
+/*   Updated: 2026/03/20 21:50:21 by tokrabem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	print_error(void)
+int	stack_size(t_stack *stack)
 {
-	write(2, "Error\n", 6);
-	exit(EXIT_FAILURE);
+	int	length;
+
+	length = 0;
+	if (!stack)
+		return (0);
+	while (stack)
+	{
+		length++;
+		stack = stack->next;
+	}
+	return (length);
 }
