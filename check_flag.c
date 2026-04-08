@@ -78,7 +78,6 @@ int	check_flag_position(int argc, char **argv)
 	return (1);
 }
 
-
 int	check_flag_bench_presence(int argc, char **argv)
 {
 	int	i;
