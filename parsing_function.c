@@ -83,6 +83,8 @@ void	parse_all_input(int argc, char **argv, t_stack **stack)
 	char	*flag;
 	char	*bench;
 
+	flag = "";
+	bench = "";
 	if (!valide_flag(argc, argv, stack))
 		return ;
 	i = 1;
