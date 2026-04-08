@@ -12,8 +12,6 @@
 
 #include "push_swap.h"
 
-
-
 int	check_bench_flag(const char *str)
 {
 	if ((ft_strcmp(str, "--bench") == 0))
@@ -49,7 +47,6 @@ int	check_duplicate_bench_flag(char **argv, int argc)
 	return (1);
 }
 
-
 int	check_bench_flag_position(int argc, char **argv)
 {
 	int	i;
@@ -73,7 +70,6 @@ int	check_bench_flag_position(int argc, char **argv)
 	}
 	return (1);
 }
-
 
 int	check_strat_flag_presence(int argc, char **argv)
 {
