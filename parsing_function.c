@@ -6,11 +6,11 @@
 /*   By: anjaraan <anjaraan@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:55:05 by anjaraan          #+#    #+#             */
-/*   Updated: 2026/04/08 10:23:49 by anjaraan         ###   ########.fr       */
+/*   Updated: 2026/04/09 13:41:13 by anjaraan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "parsing.h"
 
 void	split_and_loop(char *input, t_stack **stack)
 {
@@ -77,29 +77,21 @@ int	valide_flag(int argc, char **argv, t_stack **stack)
 	return (1);
 }
 
-void	parse_all_input(int argc, char **argv, t_stack **stack)
+void	parse_all_input(int argc, char **argv, t_stack **stack, char **flag, char **bench)
 {
 	int		i;
-	char	*flag;
-	char	*bench;
 
-	flag = "";
-	bench = "";
+	*flag = "";
+	*bench = "";
 	if (!valide_flag(argc, argv, stack))
 		return ;
 	i = 1;
 	while (i < argc)
 	{
 		if (is_flag(argv[i]))
-		{
-			flag = argv[i];
-			ft_printf("Flag détecté : %s\n", flag);
-		}
+			*flag = argv[i];
 		else if (is_bench(argv[i]))
-		{
-			bench = argv[i];
-			ft_printf("Bench flag détecté : %s\n", bench);
-		}
+			*bench = argv[i];
 		else
 			parse_int_input(argv, stack, i, i + 1);
 		i++;

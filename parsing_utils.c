@@ -3,32 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anjaraan <anjaraan@student.42antananari    +#+  +:+       +#+        */
+/*   By: tokrabem <tokrabem@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 10:47:44 by anjaraan          #+#    #+#             */
-/*   Updated: 2026/04/01 11:00:06 by anjaraan         ###   ########.fr       */
+/*   Updated: 2026/04/09 10:31:29 by tokrabem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-t_stack	*new_node(int value)
-{
-	t_stack	*node;
-
-	node = malloc(sizeof(t_stack));
-	if (!node)
-		return (NULL);
-	node->value = value;
-	node->index = 0;
-	node->push_cost = 0;
-	node->above_median = false;
-	node->cheap_move = false;
-	node->target_node = NULL;
-	node->next = NULL;
-	node->prev = NULL;
-	return (node);
-}
+#include "parsing.h"
 
 void	free_tokens(char **tokens)
 {
