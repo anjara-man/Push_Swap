@@ -6,7 +6,7 @@
 /*   By: anjaraan <anjaraan@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:55:05 by anjaraan          #+#    #+#             */
-/*   Updated: 2026/04/09 13:41:13 by anjaraan         ###   ########.fr       */
+/*   Updated: 2026/04/11 10:47:53 by anjaraan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ int	valide_flag(int argc, char **argv, t_stack **stack)
 		print_error(stack);
 		return (0);
 	}
-	if (check_flag_position(argc, argv) == 0
-		|| check_bench_flag_position(argc, argv) == 0)
+	if (check_flag_position(argc, argv) == 0 || check_bench_flag_position(argc,
+			argv) == 0)
 	{
 		print_error(stack);
 		return (0);
@@ -77,21 +77,22 @@ int	valide_flag(int argc, char **argv, t_stack **stack)
 	return (1);
 }
 
-void	parse_all_input(int argc, char **argv, t_stack **stack, char **flag, char **bench)
+void	parse_all_input(int argc, char **argv, t_stack **stack,
+		t_flagBench *flagBench)
 {
-	int		i;
+	int	i;
 
-	*flag = "";
-	*bench = "";
+	flagBench->flag = "";
+	flagBench->bench = "";
 	if (!valide_flag(argc, argv, stack))
 		return ;
 	i = 1;
 	while (i < argc)
 	{
 		if (is_flag(argv[i]))
-			*flag = argv[i];
+			flagBench->flag = argv[i];
 		else if (is_bench(argv[i]))
-			*bench = argv[i];
+			flagBench->bench = argv[i];
 		else
 			parse_int_input(argv, stack, i, i + 1);
 		i++;

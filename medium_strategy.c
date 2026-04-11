@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   medium_strategy.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tokrabem <tokrabem@student.42antananari    +#+  +:+       +#+        */
+/*   By: anjaraan <anjaraan@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 11:28:20 by tokrabem          #+#    #+#             */
-/*   Updated: 2026/04/08 19:54:07 by tokrabem         ###   ########.fr       */
+/*   Updated: 2026/04/11 11:36:14 by anjaraan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ int	medium_strategy(t_stack **a, t_stack **b, t_bench *bench)
 	size = stack_size(*a);
 	chunk = 0;
 	total_ops = 0;
+	if (is_sorted(*a))
+		return (0);
 	instruct = malloc(sizeof(t_intruction));
 	if (!instruct)
 		return (0);
