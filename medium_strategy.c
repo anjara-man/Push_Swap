@@ -6,7 +6,7 @@
 /*   By: anjaraan <anjaraan@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 11:28:20 by tokrabem          #+#    #+#             */
-/*   Updated: 2026/04/11 11:36:14 by anjaraan         ###   ########.fr       */
+/*   Updated: 2026/04/17 14:07:41 by anjaraan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,33 +50,46 @@ static int	pull_back(t_stack **a, t_stack **b, t_bench *bench)
 	return (ops);
 }
 
-int	medium_strategy(t_stack **a, t_stack **b, t_bench *bench)
+static int	main_medium_operation(t_stack **a, t_stack **b, int size,
+		t_bench *bench)
 {
-	int				size;
-	int				chunk;
 	t_intruction	*instruct;
-	int				total_ops;
+	int				chunk;
+	int				ops;
 
-	finding_index(*a);
-	size = stack_size(*a);
 	chunk = 0;
-	total_ops = 0;
-	if (is_sorted(*a))
-		return (0);
+	ops = 0;
 	instruct = malloc(sizeof(t_intruction));
 	if (!instruct)
 		return (0);
 	instruct->bench = bench;
-	while (chunk * (int)ft_sqrt((double)size) < size)
+	while (chunk * (int)ft_sqrt((double)size) < size && !is_sorted(*a))
 	{
 		instruct->min = chunk * (int)ft_sqrt((double)size);
 		instruct->max = instruct->min + (int)ft_sqrt((double)size) - 1;
 		if (instruct->max >= size)
 			instruct->max = size - 1;
-		total_ops += push_chunk(a, b, instruct);
+		ops += push_chunk(a, b, instruct);
 		chunk++;
 	}
-	total_ops += pull_back(a, b, bench);
 	free(instruct);
+	return (ops);
+}
+
+int	medium_strategy(t_stack **a, t_stack **b, t_bench *bench)
+{
+	int	size;
+	int	total_ops;
+
+	finding_index(*a);
+	size = stack_size(*a);
+	total_ops = 0;
+	if (size <= 25)
+		total_ops += simple_strategy(a, b, bench);
+	else
+	{
+		total_ops += main_medium_operation(a, b, size, bench);
+		total_ops += pull_back(a, b, bench);
+	}
 	return (total_ops);
 }
